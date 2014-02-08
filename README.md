@@ -1,2 +1,2 @@
-ideas-shop
-==========
+UCOSP Tests
+===========
