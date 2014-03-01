@@ -1,5 +1,3 @@
-import sys
-print sys.argv
 header=""
 pathName=""
 def fileHeader(pathName):
@@ -14,19 +12,33 @@ def fileHeader(pathName):
     * Contributors:
     *    {INITIAL AUTHOR} - initial API and implementation and/or initial documentation
     *******************************************************************************/ """
-
-    with open(pathName, 'r') as myfile:
+    try:
+     with open(pathName, 'r') as myfile:
              msg = myfile.read()
              myfile.closed
+    except IOError:
+        print "File or Path doesn't exist, exiting application"
+        exit(1)
 
     writeback = header + "\n\n" + msg 
-
-    f =  open(pathName, 'w')
-    f.write(writeback)
-    f.close()
-#============END OF FUNCTION fileHeader()==============#
+    try:
+        f =  open(pathName, 'w')
+        f.write(writeback)
+        f.close()
+    except IOError:
+        print "File or Path doesn't exist, exiting application"
+        exit(2)  
+def main():
+    import sys
+    import argparse
+    parser = argparse.ArgumentParser(description='Processing File paath to script.')
+    fileHeader(sys.argv[1])
+    
+#============END OF FUNCTION fileHeader()==============#insertHeaderFile.py
 if __name__ == '__main__':
-    fileHeader("/home/foundjem/UCOSP/Python/anything.txt")
+     main()         
+    
+    
     
     
     
