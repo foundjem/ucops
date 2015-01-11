@@ -37,7 +37,7 @@ def main():
 #============END OF FUNCTION fileHeader()==============#insertHeaderFile.py
 if __name__ == '__main__':
      main()         
-    
+    "The user enters the name of the file from cmd line"
     
     
     
